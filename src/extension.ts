@@ -16,6 +16,9 @@ export function activate(context: vscode.ExtensionContext) {
 		taskService.stopTimer();
 	});
 	context.subscriptions.push(nowCommand);
+
+	//自动启动
+	taskService.startup();
 }
 
 // this method is called when your extension is deactivated

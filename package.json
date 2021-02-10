@@ -2,7 +2,7 @@
 	"name": "git-robot",
 	"displayName": "git-robot",
 	"description": "",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "damiancritchfield",
 	"engines": {
 		"vscode": "^1.53.0"
@@ -12,7 +12,8 @@
 	],
 	"activationEvents": [
 		"onCommand:git-robot.start",
-		"onCommand:git-robot.stop"
+		"onCommand:git-robot.stop",
+		"onStartupFinished"
 	],
 	"main": "./out/extension.js",
 	"contributes": {

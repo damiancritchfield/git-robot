@@ -24,6 +24,10 @@ export class VscodeService{
         vscode.window.setStatusBarMessage(msg);
     }
 
+    showErrorMessage(msg: string){
+        vscode.window.showErrorMessage(msg);
+    }
+
 }
 
 const vscodeService = new VscodeService();

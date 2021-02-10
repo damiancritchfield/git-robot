@@ -1,5 +1,5 @@
 import { resolve } from 'dns';
-import simpleGit, {SimpleGit, SimpleGitOptions} from 'simple-git';
+import simpleGit, {Response, SimpleGit, SimpleGitOptions} from 'simple-git';
 
 const options: SimpleGitOptions = {
 	baseDir: process.cwd(),
@@ -19,31 +19,41 @@ const options: SimpleGitOptions = {
 
     commitAll() : Promise<void> {
         return new Promise(async (resolve, reject) => {
-            await git.cwd(this.repoDir)
-            await git.add("--all")
-            await git.commit("auto commit")
-            console.log("commit")
-            resolve()
+            try {
+                await git.cwd(this.repoDir)
+                await git.add("--all")
+                await git.commit("auto commit")
+                console.log("commit")
+                resolve()
+            } catch (error) {
+                reject()
+            }
         });
     }
 
     push() : Promise<void>{
         return new Promise(async (resolve, reject) => {
-            await git.cwd(this.repoDir)
-            await git.push("origin", "master")
-            console.log("push")
-            resolve()
+            try {
+                await git.cwd(this.repoDir)
+                await git.push("origin", "master")
+                console.log("push")
+                resolve()
+            } catch (error) {
+                reject()
+            }
         });
     }
 
     pull() : Promise<void> {
         return new Promise(async (resolve, reject) => {
-            setTimeout(async () => {
+            try {
                 await git.cwd(this.repoDir)
                 await git.pull("origin", "master")
                 console.log("pull")
                 resolve()
-            }, 5000);
+            } catch (error) {
+                reject(error)
+            }
         });
     }
 
