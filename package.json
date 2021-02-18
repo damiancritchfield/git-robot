@@ -7,7 +7,7 @@
 	"engines": {
 		"vscode": "^1.53.0"
 	},
-	"icon": "icon.png",
+	"icon": "https://damiancritchfield-1256190088.cos.ap-guangzhou.myqcloud.com/icon.png",
 	"categories": [
 		"Other"
 	],
