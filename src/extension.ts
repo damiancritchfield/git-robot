@@ -7,15 +7,20 @@ import taskService, {TaskService} from './service/task-service';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	let disposable = vscode.commands.registerCommand('git-robot.start', async () => {
+	let startCommand = vscode.commands.registerCommand('git-robot.start', async () => {
 		taskService.startTimer();
 	});
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(startCommand);
 
-	let nowCommand = vscode.commands.registerCommand('git-robot.stop', async () => {
+	let stopCommand = vscode.commands.registerCommand('git-robot.stop', async () => {
 		taskService.stopTimer();
 	});
-	context.subscriptions.push(nowCommand);
+	context.subscriptions.push(stopCommand);
+
+	let restartCommand = vscode.commands.registerCommand('git-robot.restart', async () => {
+		taskService.restart();
+	});
+	context.subscriptions.push(restartCommand);
 
 	//自动启动
 	taskService.startup();

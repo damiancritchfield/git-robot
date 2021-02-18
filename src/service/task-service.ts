@@ -1,5 +1,4 @@
 import { format } from 'date-fns';
-import { on } from 'events';
 import {Config} from '../config/config';
 import gitService, {GitService} from '../service/git-service';
 import vscodeService, {VscodeService} from '../service/vscode-service';
@@ -13,6 +12,11 @@ export class TaskService{
     
     setConfig(config : Config){
         this.config = config;
+    }
+
+    async restart(){
+        this.stopTimer();
+        this.startTimer();
     }
 
     async startup(){

@@ -1,18 +1,24 @@
 {
 	"name": "git-robot",
 	"displayName": "git-robot",
-	"description": "",
-	"version": "0.0.2",
+	"description": "git-robot is a extension that automatically executes git commands at regular intervals",
+	"version": "0.0.3",
 	"publisher": "damiancritchfield",
 	"engines": {
 		"vscode": "^1.53.0"
 	},
+	"icon": "icon.png",
 	"categories": [
 		"Other"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/damiancritchfield/git-robot.git"
+	},
 	"activationEvents": [
 		"onCommand:git-robot.start",
 		"onCommand:git-robot.stop",
+		"onCommand:git-robot.restart",
 		"onStartupFinished"
 	],
 	"main": "./out/extension.js",
@@ -26,6 +32,11 @@
 			{
 				"command": "git-robot.stop",
 				"title": "stop git-robot",
+				"category": "git-robot"
+			},
+			{
+				"command": "git-robot.restart",
+				"title": "restart git-robot",
 				"category": "git-robot"
 			}
 		]
