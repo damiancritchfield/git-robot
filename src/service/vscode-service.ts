@@ -14,14 +14,14 @@ export class VscodeService{
         if(!workspace) {
             return new Config();
         }
-        const uri = vscode.Uri.file(workspace + "\\.git-robot\\config.json");
+        const uri = vscode.Uri.file(workspace + "/.git-robot/config.json");
         const configArray : Uint8Array = await vscode.workspace.fs.readFile(uri);
         const config : Config = JSON.parse(configArray.toString());
         return config;
     }
 
     async writeConfig(config: Config, workspace: string | undefined){
-        const uri = vscode.Uri.file(workspace + "\\.git-robot\\config.json");
+        const uri = vscode.Uri.file(workspace + "/.git-robot/config.json");
         const configUint8Array = this.stringToUint8Array(JSON.stringify(config));
         await vscode.workspace.fs.writeFile(uri, configUint8Array);
         return config;
