@@ -2,7 +2,7 @@
 	"name": "git-robot",
 	"displayName": "git-robot",
 	"description": "git-robot is a extension that automatically executes git commands at regular intervals",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"publisher": "damiancritchfield",
 	"engines": {
 		"vscode": "^1.53.0"
