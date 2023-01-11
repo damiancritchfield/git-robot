@@ -1,5 +1,6 @@
 import { resolve } from 'dns';
 import simpleGit, {Response, SimpleGit, SimpleGitOptions} from 'simple-git';
+import log from '../service/final-logger';
 
 const options: SimpleGitOptions = {
 	baseDir: process.cwd(),
@@ -26,6 +27,7 @@ const options: SimpleGitOptions = {
                 console.log("commit")
                 resolve()
             } catch (error) {
+                log.error(error)
                 reject()
             }
         });
@@ -39,6 +41,7 @@ const options: SimpleGitOptions = {
                 console.log("push")
                 resolve()
             } catch (error) {
+                log.error(error)
                 reject()
             }
         });
@@ -52,6 +55,7 @@ const options: SimpleGitOptions = {
                 console.log("pull")
                 resolve()
             } catch (error) {
+                log.error(error)
                 reject(error)
             }
         });
